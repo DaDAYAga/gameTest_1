@@ -124,6 +124,7 @@ html body .homeWrap .outerBox::before {
   height: 100%;
   background: #fff;
   z-index: 100;
+  pointer-events: none;
 }
 html body .homeWrap .outerBox::after {
   content: "";
@@ -136,15 +137,16 @@ html body .homeWrap .outerBox::after {
   height: 1px;
   background: #fff;
   z-index: 100;
+  pointer-events: none;
 }
-html body .homeWrap .outerBox .testBox {
+html body .homeWrap .outerBox .mainBox {
   width: 1600px;
   height: 900px;
   background: #808080;
   position: relative;
   overflow: hidden;
 }
-html body .homeWrap .outerBox .testBox .gameWindow {
+html body .homeWrap .outerBox .mainBox .gameWindow {
   width: 2000px;
   height: 2000px;
   background: #90c9ff;
@@ -155,40 +157,40 @@ html body .homeWrap .outerBox .testBox .gameWindow {
           transform: translate(-50%, -50%);
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
 }
-html body .homeWrap .outerBox .testBox .gameWindow .cnt_1 {
-  width: 90px;
-  height: 90px;
+html body .homeWrap .outerBox .mainBox .gameWindow .charater {
   background: #06143b;
   position: absolute;
-  left: 700px;
-  top: 900px;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
-html body .homeWrap .outerBox .testBox .gameWindow .center {
+html body .homeWrap .outerBox .mainBox .gameWindow .charater.p1 {
+  width: 90px;
+  height: 90px;
+  left: 700px;
+  top: 900px;
+}
+html body .homeWrap .outerBox .mainBox .gameWindow .charater.p2 {
+  width: 90px;
+  height: 180px;
+  left: 400px;
+  top: 500px;
+}
+html body .homeWrap .outerBox .mainBox .center {
   width: 0;
   height: 0;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-html body .homeWrap .outerBox .testBox .gameWindow .cnt_3 {
-  width: 90px;
-  height: 180px;
-  background: #06143b;
-  position: absolute;
-  left: 400px;
-  top: 1300px;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
-}
 html body .homeWrap .outerBox .reBtn {
   width: 42px;
   height: 42px;
-  background: #000;
+  background: #000000;
   position: absolute;
   left: -50px;
   bottom: 0;

@@ -22,6 +22,7 @@
             height: 100%;
             background: #fff;
             z-index: 100;
+            pointer-events: none;
         }
         &::after {
             content: "";
@@ -33,15 +34,18 @@
             height: 1px;
             background: #fff;
             z-index: 100;
+            pointer-events: none;
         }
 
-        .testBox {
+        //主視窗
+        .mainBox {
             width: 1600px;
             height: 900px;
             background: #808080;
             position: relative;
             overflow: hidden;
     
+            //地圖
             .gameWindow {
                 width: 2000px;
                 height: 2000px;
@@ -51,42 +55,45 @@
                 top: 50%;
                 transform: translate(-50%,-50%);
                 transition: 0.3s all;
-    
-                .cnt_1 {
-                    width: 90px;
-                    height: 90px;
+                transition-timing-function: ease-out;
+
+                //角色設定
+                .charater {
                     background: #06143b;
                     position: absolute;
-                    left: 700px;
-                    top: 900px;
                     transition: 0.3s all;
+
+                    &.p1 {
+                        width: 90px;
+                        height: 90px;
+                        left: 700px;
+                        top: 900px;
+                    }
+                    &.p2 {
+                        width: 90px;
+                        height: 180px;
+                        left: 400px;
+                        top: 500px;
+                    }
                 }
-    
-                .center {
-                    width: 0;
-                    height: 0;
-                    position: fixed;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%,-50%);
-                }
-    
-                .cnt_3 {
-                    width: 90px;
-                    height: 180px;
-                    background: #06143b;
-                    position: absolute;
-                    left: 400px;
-                    top: 1300px;
-                    transition: 0.3s all;
-                }
+            }
+
+            //中心點
+            .center {
+                width: 0;
+                height: 0;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
             }
         }
 
+        //重置按鈕
         .reBtn {
             width: 42px;
             height: 42px;
-            background: #000;
+            background: #000000;
             position: absolute;
             left: -50px;
             bottom: 0;
