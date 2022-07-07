@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  line-height: 1;
+  font-family: "微軟正黑體";
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: "微軟正黑體";
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0px;
+  font-family: "微軟正黑體";
+}
+
+select, input {
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "微軟正黑體";
+}
+
+main {
+  display: block;
+}
+
+i {
+  display: block;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+html body .homeWrap {
+  width: 100%;
+  min-width: 1344px;
+  height: 100%;
+  min-height: 845px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html body .homeWrap .outerBox {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+html body .homeWrap .outerBox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1px;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+}
+html body .homeWrap .outerBox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  z-index: 100;
+}
+html body .homeWrap .outerBox .testBox {
+  width: 1600px;
+  height: 900px;
+  background: #808080;
+  position: relative;
+  overflow: hidden;
+}
+html body .homeWrap .outerBox .testBox .gameWindow {
+  width: 2000px;
+  height: 2000px;
+  background: #90c9ff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+html body .homeWrap .outerBox .testBox .gameWindow .cnt_1 {
+  width: 90px;
+  height: 90px;
+  background: #06143b;
+  position: absolute;
+  left: 700px;
+  top: 900px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+html body .homeWrap .outerBox .testBox .gameWindow .center {
+  width: 0;
+  height: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+html body .homeWrap .outerBox .testBox .gameWindow .cnt_3 {
+  width: 90px;
+  height: 180px;
+  background: #06143b;
+  position: absolute;
+  left: 400px;
+  top: 1300px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+html body .homeWrap .outerBox .reBtn {
+  width: 42px;
+  height: 42px;
+  background: #000;
+  position: absolute;
+  left: -50px;
+  bottom: 0;
+}
+html body .bg {
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -999;
+}
