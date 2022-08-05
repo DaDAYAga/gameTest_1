@@ -1,0 +1,36 @@
+//角色外觀
+.charater.firstPlayer {
+    background: url('../images/pixel.gif') no-repeat;
+    background-size: contain;
+}
+
+//按鈕IC
+.controlBtn .control_ic {
+    background: url('../images/icon/control.png') no-repeat;
+    background-size: contain;
+}
+.reBtn .reset_ic {
+    background: url('../images/icon/reset.png') no-repeat;
+    background-size: contain;
+}
+
+.charater .move_ic {
+    background: url('../images/icon/move.png') no-repeat;
+    background-size: contain;
+}
+.charater .attack_ic {
+    background: url('../images/icon/attack.png') no-repeat;
+    background-size: contain;
+}
+.charater .stay_ic {
+    background: url('../images/icon/stay.png') no-repeat;
+    background-size: contain;
+}
+.charater .cancel_ic {
+    background: url('../images/icon/cancel.png') no-repeat;
+    background-size: contain;
+}
+.charater .check_ic {
+    background: url('../images/icon/check.png') no-repeat;
+    background-size: contain;
+}

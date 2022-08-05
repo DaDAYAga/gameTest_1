@@ -3,6 +3,9 @@ html {
     body {
 
         @import "./home";
+        @import "./anime";
+        @import "./ground";
+        @import "./charater";
 
         .bg {
             width: 100%;

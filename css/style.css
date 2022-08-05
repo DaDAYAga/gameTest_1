@@ -1,4 +1,44 @@
 @charset "UTF-8";
+.charater.firstPlayer {
+  background: url("../images/pixel.gif") no-repeat;
+  background-size: contain;
+}
+
+.controlBtn .control_ic {
+  background: url("../images/icon/control.png") no-repeat;
+  background-size: contain;
+}
+
+.reBtn .reset_ic {
+  background: url("../images/icon/reset.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .move_ic {
+  background: url("../images/icon/move.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .attack_ic {
+  background: url("../images/icon/attack.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .stay_ic {
+  background: url("../images/icon/stay.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .cancel_ic {
+  background: url("../images/icon/cancel.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .check_ic {
+  background: url("../images/icon/check.png") no-repeat;
+  background-size: contain;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -160,23 +200,17 @@ html body .homeWrap .outerBox .mainBox .gameWindow {
   -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
 }
-html body .homeWrap .outerBox .mainBox .gameWindow .charater {
-  background: #06143b;
+html body .homeWrap .outerBox .mainBox .gameWindow .positionMap {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
 }
-html body .homeWrap .outerBox .mainBox .gameWindow .charater.p1 {
-  width: 90px;
-  height: 90px;
-  left: 700px;
-  top: 900px;
-}
-html body .homeWrap .outerBox .mainBox .gameWindow .charater.p2 {
-  width: 90px;
-  height: 180px;
-  left: 400px;
-  top: 500px;
+html body .homeWrap .outerBox .mainBox .gameWindow .positionMap.display {
+  display: block;
 }
 html body .homeWrap .outerBox .mainBox .center {
   width: 0;
@@ -187,13 +221,1007 @@ html body .homeWrap .outerBox .mainBox .center {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+html body .homeWrap .outerBox .controlBtn {
+  width: 42px;
+  height: 42px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fae0af), color-stop(50%, #d7b676), to(#f8fbc0));
+  background: linear-gradient(to top, #fae0af 0%, #d7b676 50%, #f8fbc0 100%);
+  border: solid 1px #cca172;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html body .homeWrap .outerBox .controlBtn:hover, html body .homeWrap .outerBox .controlBtn:active, html body .homeWrap .outerBox .controlBtn.active {
+  opacity: 0.7;
+}
+html body .homeWrap .outerBox .controlBtn i {
+  width: 24px;
+  height: 24px;
+}
 html body .homeWrap .outerBox .reBtn {
   width: 42px;
   height: 42px;
-  background: #000000;
+  background: -webkit-gradient(linear, left bottom, left top, from(#2a8a4b), color-stop(55%, #6dd191), color-stop(99%, #54a874));
+  background: linear-gradient(to top, #2a8a4b 0%, #6dd191 55%, #54a874 99%);
+  border: solid 1px #2a8a4b;
+  border-radius: 3px;
   position: absolute;
+  top: 50px;
   left: -50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html body .homeWrap .outerBox .reBtn:hover, html body .homeWrap .outerBox .reBtn:active, html body .homeWrap .outerBox .reBtn.active {
+  opacity: 0.7;
+}
+html body .homeWrap .outerBox .reBtn i {
+  width: 24px;
+  height: 24px;
+}
+@-webkit-keyframes moving {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes moving {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html body .groundBox {
+  width: 1632px;
+  height: 1450px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html body .groundBox .ground {
+  width: 120px;
+  height: 60px;
+  background: #ffffff;
+  position: absolute;
+}
+html body .groundBox .ground::before, html body .groundBox .ground::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+html body .groundBox .ground::before {
+  border-width: 0 60px 30px 60px;
+  top: -30px;
+}
+html body .groundBox .ground::after {
+  border-width: 30px 60px 0 60px;
+  bottom: -30px;
+}
+html body .groundBox .ground.readyStart, html body .groundBox .ground.readyTarget {
+  -webkit-animation: moving 2s linear 0s infinite;
+          animation: moving 2s linear 0s infinite;
+}
+html body .groundBox .ground.start, html body .groundBox .ground.target {
+  background: #ffff00;
+}
+html body .groundBox .ground.start::before, html body .groundBox .ground.start::after, html body .groundBox .ground.target::before, html body .groundBox .ground.target::after {
+  border-color: #ffff00 transparent;
+}
+html body .groundBox .g1 {
+  top: 30px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g2 {
+  top: 30px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g3 {
+  top: 30px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g4 {
+  top: 30px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g5 {
+  top: 30px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g6 {
+  top: 30px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g7 {
+  top: 125px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g8 {
+  top: 125px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g9 {
+  top: 125px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g10 {
+  top: 125px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g11 {
+  top: 125px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g12 {
+  top: 125px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g13 {
+  top: 125px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g14 {
+  top: 220px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g15 {
+  top: 220px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g16 {
+  top: 220px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g17 {
+  top: 220px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g18 {
+  top: 220px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g19 {
+  top: 220px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g20 {
+  top: 220px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g21 {
+  top: 220px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g22 {
+  top: 315px;
+  -webkit-transform: translateX(-504px);
+          transform: translateX(-504px);
+}
+html body .groundBox .g23 {
+  top: 315px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g24 {
+  top: 315px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g25 {
+  top: 315px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g26 {
+  top: 315px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g27 {
+  top: 315px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g28 {
+  top: 315px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g29 {
+  top: 315px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g30 {
+  top: 315px;
+  -webkit-transform: translateX(504px);
+          transform: translateX(504px);
+}
+html body .groundBox .g31 {
+  top: 410px;
+  -webkit-transform: translateX(-567px);
+          transform: translateX(-567px);
+}
+html body .groundBox .g32 {
+  top: 410px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g33 {
+  top: 410px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g34 {
+  top: 410px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g35 {
+  top: 410px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g36 {
+  top: 410px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g37 {
+  top: 410px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g38 {
+  top: 410px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g39 {
+  top: 410px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g40 {
+  top: 410px;
+  -webkit-transform: translateX(567px);
+          transform: translateX(567px);
+}
+html body .groundBox .g41 {
+  top: 505px;
+  -webkit-transform: translateX(-630px);
+          transform: translateX(-630px);
+}
+html body .groundBox .g42 {
+  top: 505px;
+  -webkit-transform: translateX(-504px);
+          transform: translateX(-504px);
+}
+html body .groundBox .g43 {
+  top: 505px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g44 {
+  top: 505px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g45 {
+  top: 505px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g46 {
+  top: 505px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g47 {
+  top: 505px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g48 {
+  top: 505px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g49 {
+  top: 505px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g50 {
+  top: 505px;
+  -webkit-transform: translateX(504px);
+          transform: translateX(504px);
+}
+html body .groundBox .g51 {
+  top: 505px;
+  -webkit-transform: translateX(630px);
+          transform: translateX(630px);
+}
+html body .groundBox .g52 {
+  top: 600px;
+  -webkit-transform: translateX(-693px);
+          transform: translateX(-693px);
+}
+html body .groundBox .g53 {
+  top: 600px;
+  -webkit-transform: translateX(-567px);
+          transform: translateX(-567px);
+}
+html body .groundBox .g54 {
+  top: 600px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g55 {
+  top: 600px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g56 {
+  top: 600px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g57 {
+  top: 600px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g58 {
+  top: 600px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g59 {
+  top: 600px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g60 {
+  top: 600px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g61 {
+  top: 600px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g62 {
+  top: 600px;
+  -webkit-transform: translateX(567px);
+          transform: translateX(567px);
+}
+html body .groundBox .g63 {
+  top: 600px;
+  -webkit-transform: translateX(693px);
+          transform: translateX(693px);
+}
+html body .groundBox .g64 {
+  top: 695px;
+  -webkit-transform: translateX(-756px);
+          transform: translateX(-756px);
+}
+html body .groundBox .g65 {
+  top: 695px;
+  -webkit-transform: translateX(-630px);
+          transform: translateX(-630px);
+}
+html body .groundBox .g66 {
+  top: 695px;
+  -webkit-transform: translateX(-504px);
+          transform: translateX(-504px);
+}
+html body .groundBox .g67 {
+  top: 695px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g68 {
+  top: 695px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g69 {
+  top: 695px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g70 {
+  top: 695px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g71 {
+  top: 695px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g72 {
+  top: 695px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g73 {
+  top: 695px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g74 {
+  top: 695px;
+  -webkit-transform: translateX(504px);
+          transform: translateX(504px);
+}
+html body .groundBox .g75 {
+  top: 695px;
+  -webkit-transform: translateX(630px);
+          transform: translateX(630px);
+}
+html body .groundBox .g76 {
+  top: 695px;
+  -webkit-transform: translateX(756px);
+          transform: translateX(756px);
+}
+html body .groundBox .g77 {
+  top: 790px;
+  -webkit-transform: translateX(-693px);
+          transform: translateX(-693px);
+}
+html body .groundBox .g78 {
+  top: 790px;
+  -webkit-transform: translateX(-567px);
+          transform: translateX(-567px);
+}
+html body .groundBox .g79 {
+  top: 790px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g80 {
+  top: 790px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g81 {
+  top: 790px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g82 {
+  top: 790px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g83 {
+  top: 790px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g84 {
+  top: 790px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g85 {
+  top: 790px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g86 {
+  top: 790px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g87 {
+  top: 790px;
+  -webkit-transform: translateX(567px);
+          transform: translateX(567px);
+}
+html body .groundBox .g88 {
+  top: 790px;
+  -webkit-transform: translateX(693px);
+          transform: translateX(693px);
+}
+html body .groundBox .g89 {
+  top: 885px;
+  -webkit-transform: translateX(-630px);
+          transform: translateX(-630px);
+}
+html body .groundBox .g90 {
+  top: 885px;
+  -webkit-transform: translateX(-504px);
+          transform: translateX(-504px);
+}
+html body .groundBox .g91 {
+  top: 885px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g92 {
+  top: 885px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g93 {
+  top: 885px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g94 {
+  top: 885px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g95 {
+  top: 885px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g96 {
+  top: 885px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g97 {
+  top: 885px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g98 {
+  top: 885px;
+  -webkit-transform: translateX(504px);
+          transform: translateX(504px);
+}
+html body .groundBox .g99 {
+  top: 885px;
+  -webkit-transform: translateX(630px);
+          transform: translateX(630px);
+}
+html body .groundBox .g100 {
+  top: 980px;
+  -webkit-transform: translateX(-567px);
+          transform: translateX(-567px);
+}
+html body .groundBox .g101 {
+  top: 980px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g102 {
+  top: 980px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g103 {
+  top: 980px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g104 {
+  top: 980px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g105 {
+  top: 980px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g106 {
+  top: 980px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g107 {
+  top: 980px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g108 {
+  top: 980px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g109 {
+  top: 980px;
+  -webkit-transform: translateX(567px);
+          transform: translateX(567px);
+}
+html body .groundBox .g110 {
+  top: 1075px;
+  -webkit-transform: translateX(-504px);
+          transform: translateX(-504px);
+}
+html body .groundBox .g111 {
+  top: 1075px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g112 {
+  top: 1075px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g113 {
+  top: 1075px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g114 {
+  top: 1075px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g115 {
+  top: 1075px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g116 {
+  top: 1075px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g117 {
+  top: 1075px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g118 {
+  top: 1075px;
+  -webkit-transform: translateX(504px);
+          transform: translateX(504px);
+}
+html body .groundBox .g119 {
+  top: 1170px;
+  -webkit-transform: translateX(-441px);
+          transform: translateX(-441px);
+}
+html body .groundBox .g120 {
+  top: 1170px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g121 {
+  top: 1170px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g122 {
+  top: 1170px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g123 {
+  top: 1170px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g124 {
+  top: 1170px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g125 {
+  top: 1170px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .groundBox .g126 {
+  top: 1170px;
+  -webkit-transform: translateX(441px);
+          transform: translateX(441px);
+}
+html body .groundBox .g127 {
+  top: 1265px;
+  -webkit-transform: translateX(-378px);
+          transform: translateX(-378px);
+}
+html body .groundBox .g128 {
+  top: 1265px;
+  -webkit-transform: translateX(-252px);
+          transform: translateX(-252px);
+}
+html body .groundBox .g129 {
+  top: 1265px;
+  -webkit-transform: translateX(-126px);
+          transform: translateX(-126px);
+}
+html body .groundBox .g130 {
+  top: 1265px;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+html body .groundBox .g131 {
+  top: 1265px;
+  -webkit-transform: translateX(126px);
+          transform: translateX(126px);
+}
+html body .groundBox .g132 {
+  top: 1265px;
+  -webkit-transform: translateX(252px);
+          transform: translateX(252px);
+}
+html body .groundBox .g133 {
+  top: 1265px;
+  -webkit-transform: translateX(378px);
+          transform: translateX(378px);
+}
+html body .groundBox .g134 {
+  top: 1360px;
+  -webkit-transform: translateX(-315px);
+          transform: translateX(-315px);
+}
+html body .groundBox .g135 {
+  top: 1360px;
+  -webkit-transform: translateX(-189px);
+          transform: translateX(-189px);
+}
+html body .groundBox .g136 {
+  top: 1360px;
+  -webkit-transform: translateX(-63px);
+          transform: translateX(-63px);
+}
+html body .groundBox .g137 {
+  top: 1360px;
+  -webkit-transform: translateX(63px);
+          transform: translateX(63px);
+}
+html body .groundBox .g138 {
+  top: 1360px;
+  -webkit-transform: translateX(189px);
+          transform: translateX(189px);
+}
+html body .groundBox .g139 {
+  top: 1360px;
+  -webkit-transform: translateX(315px);
+          transform: translateX(315px);
+}
+html body .charater {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  z-index: 1;
+}
+html body .charater .stateBox {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+html body .charater .stateBox .moveList {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html body .charater .stateBox .moveList.active .move,
+html body .charater .stateBox .moveList.active .attack,
+html body .charater .stateBox .moveList.active .stay,
+html body .charater .stateBox .moveList.active .cancel {
+  -webkit-transform: translate(0%, 0%) scale(1);
+          transform: translate(0%, 0%) scale(1);
+}
+html body .charater .stateBox .moveList li {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(#bffffd 0%, #2dd2f2 50%, #2096ad 70%, #166878 90%, #2ed4f5 100%);
+  border: solid 1px #166878;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+  position: absolute;
+}
+html body .charater .stateBox .moveList li:hover, html body .charater .stateBox .moveList li:active, html body .charater .stateBox .moveList li.active {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+html body .charater .stateBox .moveList li.move {
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(150%, 150%) scale(0);
+          transform: translate(150%, 150%) scale(0);
+}
+html body .charater .stateBox .moveList li.attack {
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(-150%, 150%) scale(0);
+          transform: translate(-150%, 150%) scale(0);
+}
+html body .charater .stateBox .moveList li.stay {
   bottom: 0;
+  left: 0;
+  -webkit-transform: translate(150%, -150%) scale(0);
+          transform: translate(150%, -150%) scale(0);
+}
+html body .charater .stateBox .moveList li.cancel {
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(-150%, -150%) scale(0);
+          transform: translate(-150%, -150%) scale(0);
+}
+html body .charater .stateBox .moveList li.cancel i {
+  width: 16px;
+  height: 16px;
+}
+html body .charater .stateBox .moveList li i {
+  width: 20px;
+  height: 20px;
+}
+html body .charater .stateBox .stepCount {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+html body .charater .stateBox .stepCount.active {
+  pointer-events: visible;
+}
+html body .charater .stateBox .stepCount.active .btnBox .moveCancel {
+  -webkit-transform: translateX(0) scale(1);
+          transform: translateX(0) scale(1);
+}
+html body .charater .stateBox .stepCount.active p {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+html body .charater .stateBox .stepCount .btnBox {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html body .charater .stateBox .stepCount .btnBox button {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(#bffffd 0%, #2dd2f2 50%, #2096ad 70%, #166878 90%, #2ed4f5 100%);
+  border: solid 1px #166878;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+html body .charater .stateBox .stepCount .btnBox button:hover, html body .charater .stateBox .stepCount .btnBox button:active, html body .charater .stateBox .stepCount .btnBox button.active {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+html body .charater .stateBox .stepCount .btnBox button.moveCheck {
+  -webkit-transform: translateX(150%) scale(0);
+          transform: translateX(150%) scale(0);
+}
+html body .charater .stateBox .stepCount .btnBox button.moveCheck.display {
+  -webkit-transform: translateX(0) scale(1);
+          transform: translateX(0) scale(1);
+}
+html body .charater .stateBox .stepCount .btnBox button.moveCancel {
+  -webkit-transform: translateX(-150%) scale(0);
+          transform: translateX(-150%) scale(0);
+}
+html body .charater .stateBox .stepCount .btnBox button.moveCancel i {
+  width: 16px;
+  height: 16px;
+}
+html body .charater .stateBox .stepCount .btnBox button i {
+  width: 20px;
+  height: 20px;
+}
+html body .charater .stateBox .stepCount p {
+  width: 100%;
+  color: #1f1f1f;
+  font-size: 17px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 html body .bg {
   width: 100%;

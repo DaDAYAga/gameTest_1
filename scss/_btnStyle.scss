@@ -1,0 +1,49 @@
+//設定按鈕
+@mixin controlBtn {
+    background: linear-gradient(to top, #fae0af 0%, #d7b676 50%, #f8fbc0 100%);
+    border: solid 1px #cca172;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,&:active,&.active {
+        opacity: 0.7;
+    }
+}
+
+//重置按鈕
+@mixin reBtn {
+    background: linear-gradient(to top, #2a8a4b 0%, #6dd191 55%, #54a874 99%);
+    border: solid 1px #2a8a4b;
+    border-radius: 3px;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,&:active,&.active {
+        opacity: 0.7;
+    }
+}
+
+//動作選單按鈕
+@mixin moveBtn {
+    background: radial-gradient(#bffffd 0%,#2dd2f2 50%,#2096ad 70%,#166878 90%,#2ed4f5 100%);
+    border: solid 1px #166878;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s all;
+    cursor: pointer;
+
+    &:hover,&:active,&.active {
+        filter: brightness(1.2);
+    }
+}
