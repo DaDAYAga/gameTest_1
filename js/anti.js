@@ -1,6 +1,7 @@
 function consoleOpenCallback() {
-        
+    window.location.href="./html";
 }
+
 !function () {
 
     const handler = setInterval(() => {
@@ -22,3 +23,9 @@ function consoleOpenCallback() {
     },1000)
 
 }();
+
+$(document).keyup(function(event) {
+    if (event.which == 123) {
+        window.location.href="./html";
+    }
+});
