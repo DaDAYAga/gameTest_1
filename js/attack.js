@@ -38,7 +38,7 @@ $(function(){
                 if(ans / 158 > 1 && ans / 158 <= 2 && b != 0 && ans != 284)
                 {
                     $(this)
-                    .addClass("skillRange");
+                    .addClass("skillRange jumpMove");
                 }
             })
         }
@@ -91,7 +91,7 @@ $(function(){
         if($(".ground").hasClass("skillRange"))
         {
             $(".ground")
-            .removeClass("skillRange");
+            .removeClass("skillRange arrowRain");
 
             $(".skillList")
             .addClass("active");
@@ -104,6 +104,11 @@ $(function(){
             .addClass("active")
             .css("pointer-events","visible");
         }
+    })
+
+    //靈巧身法判定
+    $(document).on("click","jumpMove",function(){
+        
     })
 
     //箭雨判定

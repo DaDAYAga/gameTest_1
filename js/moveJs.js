@@ -13,12 +13,12 @@ $(function(){
         //判定主角左轉右轉
         if($(this).offset().left < $(".charater.moving").offset().left)
         {
-            $(".charater.moving,.charater .moveList,.charater .stepCount")
+            $(".charater.moving,.charater .moveList,.charater .stepCount,.charater .skillList")
             .css("transform","scaleX(-1)");
         }
         else
         {
-            $(".charater.moving,.charater .moveList,.charater .stepCount")
+            $(".charater.moving,.charater .moveList,.charater .stepCount,.charater .skillList")
             .css("transform","scaleX(1)");
         }
 
