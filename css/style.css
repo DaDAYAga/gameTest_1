@@ -39,6 +39,51 @@
   background-size: contain;
 }
 
+.charater .skill_ic.closeRange {
+  background: url("../images/icon/skill_closeRange.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skill_ic.longRange {
+  background: url("../images/icon/skill_longRange.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skill_ic.move {
+  background: url("../images/icon/skill_move.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skill_ic.support {
+  background: url("../images/icon/skill_support.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skill_ic.special {
+  background: url("../images/icon/skill_special.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skillTest_1 {
+  background: url("../images/icon/skillTest_1.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skillTest_2 {
+  background: url("../images/icon/skillTest_2.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skillTest_3 {
+  background: url("../images/icon/skillTest_3.png") no-repeat;
+  background-size: contain;
+}
+
+.charater .skillTest_4 {
+  background: url("../images/icon/skillTest_4.png") no-repeat;
+  background-size: contain;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -340,7 +385,7 @@ html body .groundBox .ground::after {
   border-width: 30px 60px 0 60px;
   bottom: -30px;
 }
-html body .groundBox .ground.readyStart, html body .groundBox .ground.readyTarget {
+html body .groundBox .ground.readyStart, html body .groundBox .ground.readyTarget, html body .groundBox .ground.skillRange {
   -webkit-animation: moving 2s linear 0s infinite;
           animation: moving 2s linear 0s infinite;
 }
@@ -1222,6 +1267,233 @@ html body .charater .stateBox .stepCount p {
           transform-origin: center;
   -webkit-transform: scale(0);
           transform: scale(0);
+}
+html body .charater .stateBox .skillList {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+html body .charater .stateBox .skillList.active {
+  pointer-events: visible;
+}
+html body .charater .stateBox .skillList.active ul li:nth-of-type(1), html body .charater .stateBox .skillList.active ul li:nth-of-type(4) {
+  -webkit-transform: translate(-50%, 0) scale(1);
+          transform: translate(-50%, 0) scale(1);
+}
+html body .charater .stateBox .skillList.active ul li:nth-of-type(2), html body .charater .stateBox .skillList.active ul li:nth-of-type(3) {
+  -webkit-transform: translate(0, -50%) scale(1);
+          transform: translate(0, -50%) scale(1);
+}
+html body .charater .stateBox .skillList.readyCancel {
+  pointer-events: visible;
+}
+html body .charater .stateBox .skillList.readyCancel .skillCancel {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+html body .charater .stateBox .skillList ul {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+html body .charater .stateBox .skillList ul li {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(#bffffd 0%, #2dd2f2 50%, #2096ad 70%, #166878 90%, #2ed4f5 100%);
+  border: solid 1px #166878;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+  position: absolute;
+}
+html body .charater .stateBox .skillList ul li:hover, html body .charater .stateBox .skillList ul li:active, html body .charater .stateBox .skillList ul li.active {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+html body .charater .stateBox .skillList ul li.skill_normal {
+  background: radial-gradient(#c4ffbf 0%, #30f22d 50%, #30ad20 70%, #217816 90%, #60f52e 100%);
+  border-color: #167818;
+}
+html body .charater .stateBox .skillList ul li.skill_strong {
+  background: radial-gradient(#fcffbf 0%, #f2ef2d 50%, #abad20 70%, #787316 90%, #f5e42e 100%);
+  border-color: #787316;
+}
+html body .charater .stateBox .skillList ul li.skill_ultimate {
+  background: radial-gradient(#c4bfff 0%, #372df2 50%, #2720ad 70%, #181678 90%, #382ef5 100%);
+  border-color: #1d1678;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(1) {
+  left: 50%;
+  -webkit-transform: translate(-50%, 150%) scale(0);
+          transform: translate(-50%, 150%) scale(0);
+  top: 0;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(1) div {
+  bottom: 40px;
+  left: 18px;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(2) {
+  top: 50%;
+  -webkit-transform: translate(150%, -50%) scale(0);
+          transform: translate(150%, -50%) scale(0);
+  left: 0;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(2) div {
+  bottom: 40px;
+  right: 18px;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(3) {
+  top: 50%;
+  -webkit-transform: translate(-150%, -50%) scale(0);
+          transform: translate(-150%, -50%) scale(0);
+  right: 0;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(3) div {
+  bottom: 40px;
+  left: 18px;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(4) {
+  left: 50%;
+  -webkit-transform: translate(-50%, -150%) scale(0);
+          transform: translate(-50%, -150%) scale(0);
+  bottom: 0;
+}
+html body .charater .stateBox .skillList ul li:nth-of-type(4) div {
+  top: 40px;
+  left: 18px;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}
+html body .charater .stateBox .skillList ul li:hover div, html body .charater .stateBox .skillList ul li:active div, html body .charater .stateBox .skillList ul li.active div {
+  width: 300px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  padding: 16px;
+}
+html body .charater .stateBox .skillList ul li .skill_ic {
+  width: 20px;
+  height: 20px;
+}
+html body .charater .stateBox .skillList ul li div {
+  width: 0;
+  height: auto;
+  background: #1f1f1fda;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  cursor: default;
+  -webkit-transition: 0.3s -webkit-transform;
+  transition: 0.3s -webkit-transform;
+  transition: 0.3s transform;
+  transition: 0.3s transform, 0.3s -webkit-transform;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  overflow: hidden;
+}
+html body .charater .stateBox .skillList ul li div i {
+  width: 28px;
+  height: 28px;
+  margin: 0 10px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+html body .charater .stateBox .skillList ul li div p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+html body .charater .stateBox .skillList ul li div p.name {
+  font-size: 16px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html body .charater .stateBox .skillList ul li div p.name span {
+  font-size: 14px;
+  margin: 0;
+}
+html body .charater .stateBox .skillList ul li div p span {
+  position: relative;
+  margin: 0 3px;
+  cursor: pointer;
+}
+html body .charater .stateBox .skillList ul li div p span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+  left: 0;
+  bottom: -1px;
+}
+html body .charater .stateBox .skillList .skillCancel {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(#bffffd 0%, #2dd2f2 50%, #2096ad 70%, #166878 90%, #2ed4f5 100%);
+  border: solid 1px #166878;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+html body .charater .stateBox .skillList .skillCancel:hover, html body .charater .stateBox .skillList .skillCancel:active, html body .charater .stateBox .skillList .skillCancel.active {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+html body .charater .stateBox .skillList .skillCancel i {
+  width: 16px;
+  height: 16px;
 }
 html body .bg {
   width: 100%;

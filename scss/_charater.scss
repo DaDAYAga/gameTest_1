@@ -145,5 +145,200 @@
                 transform: scale(0);
             }
         }
+
+        //技能表
+        .skillList {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+
+            &.active {
+                pointer-events: visible;
+
+                ul {
+
+                    li {
+                        
+                        &:nth-of-type(1),
+                        &:nth-of-type(4) {
+                            transform: translate(-50%,0) scale(1);
+                        }
+                        &:nth-of-type(2),
+                        &:nth-of-type(3) {
+                            transform: translate(0,-50%) scale(1);
+                        }
+                    }
+                }
+            }
+
+            &.readyCancel {
+                pointer-events: visible;
+
+                .skillCancel {
+                    transform: translate(-50%,-50%) scale(1);
+                }
+            }
+
+            ul {
+                width: 100%;
+                height: 100%;
+                position: relative;
+
+                li {
+                    width: 36px;
+                    height: 36px;
+                    @include moveBtn;
+                    position: absolute;
+
+                    &.skill_normal {
+                        background: $skillBG_normal;
+                        border-color: $skillBorder_normal;
+                    }
+                    &.skill_strong {
+                        background: $skillBG_strong;
+                        border-color: $skillBorder_strong;
+                    }
+                    &.skill_ultimate {
+                        background: $skillBG_ultimate;
+                        border-color: $skillBorder_ultimate;
+                    }
+
+                    &:nth-of-type(1) {
+                        left: 50%;
+                        transform: translate(-50%,150%) scale(0);
+                        top: 0;
+
+                        div {
+                            bottom: 40px;
+                            left: 18px;
+                            transform-origin: left bottom;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        top: 50%;
+                        transform: translate(150%,-50%) scale(0);
+                        left: 0;
+
+                        div {
+                            bottom: 40px;
+                            right: 18px;
+                            transform-origin: right bottom;
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        top: 50%;
+                        transform: translate(-150%,-50%) scale(0);
+                        right: 0;
+
+                        div {
+                            bottom: 40px;
+                            left: 18px;
+                            transform-origin: left bottom;
+                        }
+                    }
+                    &:nth-of-type(4) {
+                        left: 50%;
+                        transform: translate(-50%,-150%) scale(0);
+                        bottom: 0;
+
+                        div {
+                            top: 40px;
+                            left: 18px;
+                            transform-origin: left top;
+                        }
+                    }
+
+                    &:hover,&:active,&.active {
+
+                        div {
+                            width: 300px;
+                            transform: scale(1);
+                            padding: 16px;
+                        }
+                    }
+
+                    .skill_ic {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    div {
+                        width: 0;
+                        height: auto;
+                        background: #1f1f1fda;
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        padding: 0;
+                        cursor: default;
+                        transition: 0.3s transform;
+                        transform: scale(0);
+                        overflow: hidden;
+
+                        i {
+                            width: 28px;
+                            height: 28px;
+                            margin: 0 10px;
+                            flex-shrink: 0;
+                        }
+
+                        p {
+                            color: #ffffff;
+                            font-size: 14px;
+                            font-weight: bold;
+                            line-height: 20px;
+
+                            &.name {
+                                font-size: 16px;
+                                flex-shrink: 0;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                span {
+                                    font-size: 14px;
+                                    margin: 0;
+                                }
+                            }
+
+                            span {
+                                position: relative;
+                                margin: 0 3px;
+                                cursor: pointer;
+
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 1px;
+                                    background: #ffffff;
+                                    left: 0;
+                                    bottom: -1px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .skillCancel {
+                width: 36px;
+                height: 36px;
+                @include moveBtn;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%) scale(0);
+
+                i {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
     }
 }

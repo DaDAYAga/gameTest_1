@@ -35,5 +35,15 @@ $(function(){
                 }
             })
         }
+
+        //角色攻擊
+        if($(this).hasClass("attack"))
+        {
+            $(".moveList")
+            .css("pointer-events","none");
+
+            $(".skillList")
+            .addClass("active readyCancel");
+        }
     })
 })

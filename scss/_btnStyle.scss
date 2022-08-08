@@ -47,3 +47,9 @@
         filter: brightness(1.2);
     }
 }
+$skillBG_normal: radial-gradient(#c4ffbf 0%,#30f22d 50%,#30ad20 70%,#217816 90%,#60f52e 100%);
+$skillBorder_normal: #167818;
+$skillBG_strong: radial-gradient(#fcffbf 0%,#f2ef2d 50%,#abad20 70%,#787316 90%,#f5e42e 100%);
+$skillBorder_strong: #787316;
+$skillBG_ultimate: radial-gradient(#c4bfff 0%,#372df2 50%,#2720ad 70%,#181678 90%,#382ef5 100%);
+$skillBorder_ultimate: #1d1678;
