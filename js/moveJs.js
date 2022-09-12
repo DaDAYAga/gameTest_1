@@ -3,7 +3,11 @@ $(function(){
     $(".charater.firstPlayer").offset({
         left: $(".ground.first").offset().left + 10,
         top: $(".ground.first").offset().top - 60
-    })        
+    })
+    $(".charater.secondPlayer").offset({
+        left: $(".ground.second").offset().left + 10,
+        top: $(".ground.second").offset().top - 60
+    })   
 
     //地板點擊時
     var arr;
@@ -13,12 +17,12 @@ $(function(){
         //判定主角左轉右轉
         if($(this).offset().left < $(".charater.moving").offset().left)
         {
-            $(".charater.moving,.charater .moveList,.charater .stepCount,.charater .skillList")
+            $(".charater.moving,.charater .moveList,.charater.moving .stepCount,.charater.moving .skillList")
             .css("transform","scaleX(-1)");
         }
         else
         {
-            $(".charater.moving,.charater .moveList,.charater .stepCount,.charater .skillList")
+            $(".charater.moving,.charater .moveList,.charater.moving .stepCount,.charater.moving .skillList")
             .css("transform","scaleX(1)");
         }
 
@@ -26,7 +30,7 @@ $(function(){
         var startRangeLeft = Math.abs($(this).offset().left - $(".charater.moving").offset().left + 10);
         var startRangeTop = Math.abs($(this).offset().top - $(".charater.moving").offset().top - 60);
 
-        if(startRangeLeft <= 130 && startRangeTop <= 100 && !$(".ground.start").length && !$(this).hasClass("first"))
+        if(startRangeLeft <= 130 && startRangeTop <= 100 && !$(".ground.start").length && !$(this).hasClass("first") && !$(this).hasClass("second"))
         {
             $(this)
             .addClass("start")
@@ -39,7 +43,7 @@ $(function(){
                 var targetLeft = Math.abs($(this).offset().left - $(".ground.start").offset().left);
                 var targetTop = Math.abs($(this).offset().top - $(".ground.start").offset().top);
 
-                if(targetLeft <= 130 && targetTop <= 100 && !$(this).hasClass("start") && !$(this).hasClass("first"))
+                if(targetLeft <= 130 && targetTop <= 100 && !$(this).hasClass("start") && !$(this).hasClass("first") && !$(this).hasClass("second"))
                 {
                     $(this)
                     .addClass("readyTarget");
@@ -55,7 +59,7 @@ $(function(){
         var targetRangeLeft = Math.abs($(this).offset().left - $(".ground.start").offset().left);
         var targetRangeTop = Math.abs($(this).offset().top - $(".ground.start").offset().top);
 
-        if(targetRangeLeft <= 130 && targetRangeTop <= 100 && !$(this).hasClass("start"))
+        if(targetRangeLeft <= 130 && targetRangeTop <= 100 && !$(this).hasClass("start") && !$(this).hasClass("first") && !$(this).hasClass("second"))
         {
             $(this)
             .addClass("target")
@@ -64,7 +68,7 @@ $(function(){
             .removeClass("readyTarget");
 
             //出現確認移動按鈕
-            $(".moveCheck")
+            $(".charater.moving .moveCheck")
             .addClass("display");
 
             //剩餘步數
@@ -93,7 +97,7 @@ $(function(){
                 var startLeft = Math.abs($(this).offset().left - $(".charater.moving").offset().left + 10);
                 var startTop = Math.abs($(this).offset().top - $(".charater.moving").offset().top - 60);
     
-                if(startLeft <= 130 && startTop <= 100 && startLeft != 0)
+                if(startLeft <= 130 && startTop <= 100  && !$(this).hasClass("first") && !$(this).hasClass("second"))
                 {
                     $(this)
                     .addClass("readyStart");
@@ -119,7 +123,7 @@ $(function(){
                 var targetLeft = Math.abs($(this).offset().left - $(".ground.start").offset().left);
                 var targetTop = Math.abs($(this).offset().top - $(".ground.start").offset().top);
 
-                if(targetLeft <= 130 && targetTop <= 100 && !$(this).hasClass("start"))
+                if(targetLeft <= 130 && targetTop <= 100 && !$(this).hasClass("start") && !$(this).hasClass("first") && !$(this).hasClass("second"))
                 {
                     $(this)
                     .addClass("readyTarget");
@@ -151,13 +155,6 @@ $(function(){
             .css("pointer-events","visible");
         }
 
-        //當起始位置出現時腳下地板不可選
-        if($(".ground").hasClass("start"))
-        {
-            $(".ground.first,.charater.moving")
-            .css("pointer-events","none");
-        }
-
         //遍歷
         n = 0;
         arr = [];
@@ -172,11 +169,11 @@ $(function(){
     //確認移動
     $(".moveCheck").on("click",function(){
         //重置
-        $(".charater .moveList")
+        $(".charater.moving .moveList")
         .css("pointer-events","visible");
-        $(".charater .stepCount")
+        $(".charater.moving .stepCount")
         .removeClass("active");
-        $(".moveCheck")
+        $(".charater.moving .moveCheck")
         .removeClass("display");
 
         //第一次移動
@@ -196,18 +193,23 @@ $(function(){
             .removeClass("moving");
         },300);
 
-        //角色恢復可點擊
-        $(".charater")
-        .css("pointer-events","visible");
-
         //移除計算物
         $(".ground.start,.ground.target").find("p")
         .remove();
 
         //加入不可選起始位置
-        $(".ground.target")
-        .addClass("first")
-        .siblings().removeClass("first");
+        if($(this).closest(".charater").hasClass("firstPlayer"))
+        {
+            $(".ground.target")
+            .addClass("first")
+            .siblings().removeClass("first");
+        }
+        else if($(this).closest(".charater").hasClass("secondPlayer"))
+        {
+            $(".ground.target")
+            .addClass("second")
+            .siblings().removeClass("second");
+        }
 
         //移除起始+終點位置標籤
         $(".ground")
@@ -221,6 +223,11 @@ $(function(){
             $(".stepCount p")
             .text("剩餘步數 2 步");
         },300);
+
+        //重啟動作選單
+        $($(this).closest(".charater")).find(".moveList")
+        .css("pointer-events","visible")
+        .addClass("active attackOnly");
     })
 
     //否決移動

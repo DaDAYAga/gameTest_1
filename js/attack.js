@@ -93,16 +93,19 @@ $(function(){
             $(".ground")
             .removeClass("skillRange arrowRain");
 
-            $(".skillList")
+            $(".charater.attacking .skillList")
             .addClass("active");
         }
         else {
             $(".skillList")
             .removeClass("active readyCancel");
 
-            $(".moveList")
-            .addClass("active")
-            .css("pointer-events","visible");
+            $(".charater")
+            .removeClass("attacking");
+
+            $($(this).closest(".charater")).find(".moveList")
+            .css("pointer-events","visible")
+            .addClass("active");
         }
     })
 

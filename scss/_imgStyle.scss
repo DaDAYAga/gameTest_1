@@ -1,6 +1,14 @@
 //角色外觀
 .charater.firstPlayer {
-    background: url('../images/pixel.gif') no-repeat;
+    background: url('../images/pixel.gif') no-repeat center;
+    background-size: contain;
+}
+.charater.secondPlayer {
+    background: url('../images/pixel-b.gif') no-repeat center;
+    background-size: contain;
+}
+.memberList.forFirst .img {
+    background: url('../images/pixel_img.png') no-repeat center;
     background-size: contain;
 }
 

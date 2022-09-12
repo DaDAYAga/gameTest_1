@@ -1,6 +1,16 @@
 @charset "UTF-8";
 .charater.firstPlayer {
-  background: url("../images/pixel.gif") no-repeat;
+  background: url("../images/pixel.gif") no-repeat center;
+  background-size: contain;
+}
+
+.charater.secondPlayer {
+  background: url("../images/pixel-b.gif") no-repeat center;
+  background-size: contain;
+}
+
+.memberList.forFirst .img {
+  background: url("../images/pixel_img.png") no-repeat center;
   background-size: contain;
 }
 
@@ -192,6 +202,8 @@ html body .homeWrap {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 html body .homeWrap .outerBox {
   width: auto;
@@ -1098,6 +1110,11 @@ html body .charater {
   transition: 0.3s all;
   z-index: 1;
 }
+html body .charater.disable, html body .charater.nextTurn {
+  pointer-events: none;
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+}
 html body .charater .stateBox {
   width: 120px;
   height: 120px;
@@ -1120,6 +1137,16 @@ html body .charater .stateBox .moveList.active .stay,
 html body .charater .stateBox .moveList.active .cancel {
   -webkit-transform: translate(0%, 0%) scale(1);
           transform: translate(0%, 0%) scale(1);
+}
+html body .charater .stateBox .moveList.attackOnly .move,
+html body .charater .stateBox .moveList.attackOnly .cancel {
+  display: none;
+}
+html body .charater .stateBox .moveList.attackOnly .attack,
+html body .charater .stateBox .moveList.attackOnly .stay {
+  top: 50%;
+  -webkit-transform: translate(0%, -50%) scale(1);
+          transform: translate(0%, -50%) scale(1);
 }
 html body .charater .stateBox .moveList li {
   width: 36px;
@@ -1494,6 +1521,36 @@ html body .charater .stateBox .skillList .skillCancel:hover, html body .charater
 html body .charater .stateBox .skillList .skillCancel i {
   width: 16px;
   height: 16px;
+}
+html body .memberList {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: -300px;
+  left: 0;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+html body .memberList.active {
+  bottom: 0;
+}
+html body .memberList .img {
+  width: 300px;
+  height: 300px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+html body .memberList .skillBox {
+  width: 100%;
+  height: 150px;
+  background: #cccccc;
 }
 html body .bg {
   width: 100%;
